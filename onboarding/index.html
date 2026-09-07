@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CarOS_Nori_2026 入项指南 · 新人快速上手</title>
+<meta name="description" content="CarOS_Nori_2026 项目入项须知交互引导页：入项流程时间线、须知要点卡片、FAQ 与 AI 问答助手，帮助新人快速完成入项。" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top">
+      <span class="brand-dot"></span>
+      <span>CarOS_Nori_2026 · 入项指南</span>
+    </a>
+    <nav class="nav-links" id="nav-links">
+      <a href="#flow" data-view="flow">入项引导</a>
+      <a href="#guide" data-view="guide">须知要点</a>
+      <a href="#resources" data-view="resources">资料导航</a>
+      <a href="#faq" data-view="faq">常见问题</a>
+      <a href="#" id="wiki-link" target="_blank" rel="noopener">原文 Wiki ↗</a>
+    </nav>
+    <button class="btn btn-sm" id="nav-ask-btn">打开助手</button>
+    <button class="icon-btn theme-toggle" id="theme-toggle" title="切换主题" aria-label="切换主题">
+      <svg id="theme-icon" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+    </button>
+    <button class="nav-burger" id="nav-burger" aria-label="菜单">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="glow glow-a"></div>
+  <div class="glow glow-b"></div>
+  <div class="wrap hero-inner">
+    <span class="badge">新人入项 · 一站式引导</span>
+    <h1>快速入项<br /><span class="grad">从这里开始</span></h1>
+    <p class="lead">
+      本页将 CarOS_Nori_2026（滴水OS 2.0 / 8X97 平台）的入项须知整理为<b>可交互的引导流程</b>：
+      按时间线完成各环节，查阅分类要点与常见问题，随时召唤 AI 助手答疑。细节内容可询问助手或查看原文 Wiki。
+    </p>
+    <div class="hero-cards">
+      <div class="mini-card">
+        <div class="mini-k">入项步骤</div>
+        <div class="mini-v" id="stat-steps">5 步</div>
+        <div class="mini-d">从读文档到首个任务交付</div>
+      </div>
+      <div class="mini-card">
+        <div class="mini-k">须知分类</div>
+        <div class="mini-v" id="stat-cards">6 类</div>
+        <div class="mini-d">权限 / 环境 / 规范 / 协作…</div>
+      </div>
+      <div class="mini-card">
+        <div class="mini-k">常见问题</div>
+        <div class="mini-v" id="stat-faq">6 条</div>
+        <div class="mini-d">新人最高频的坑</div>
+      </div>
+      <div class="mini-card">
+        <div class="mini-k">AI 助手</div>
+        <div class="mini-v">7×24</div>
+        <div class="mini-d">基于入项知识库即时答疑</div>
+      </div>
+    </div>
+    <div class="hero-cta">
+      <a class="btn" href="#flow" data-view="flow">开始入项引导</a>
+      <button class="btn btn-ghost" id="hero-ask-btn">询问 AI 助手</button>
+    </div>
+  </div>
+</section>
+
+<main class="wrap">
+
+  <!-- ============ 新手入项引导（流程 + 任务 + 直达链接） ============ -->
+  <section class="section" id="flow">
+    <div class="sec-head">
+      <span class="sec-idx">01</span>
+      <div>
+        <h2>新手入项引导</h2>
+        <p>五步走完入项：展开每一步，勾选完成任务、点直达链接；进度自动保存在本机浏览器。</p>
+      </div>
+    </div>
+
+    <div class="cl-progress reveal">
+      <div class="cl-progress-top">
+        <span class="cl-progress-label">入项总进度</span>
+        <span class="cl-progress-num" id="cl-num">0 / 0</span>
+        <span class="cl-progress-pct" id="cl-pct">0%</span>
+        <button class="link-btn cl-reset" id="cl-reset" title="清空全部勾选记录">重置</button>
+      </div>
+      <div class="cl-bar"><div class="cl-bar-in" id="cl-bar"></div></div>
+      <div class="cl-done-tip" id="cl-done-tip">🎉 恭喜！全部任务已完成，欢迎正式加入 CarOS_Nori_2026！</div>
+    </div>
+
+    <div class="flow" id="flow-list"></div>
+  </section>
+
+  <!-- ============ 须知卡片 ============ -->
+  <section class="section" id="guide">
+    <div class="sec-head">
+      <span class="sec-idx">02</span>
+      <div>
+        <h2>须知要点卡片</h2>
+        <p>账号权限、环境配置、规范约定……分类速查。</p>
+      </div>
+    </div>
+    <div class="guide-grid" id="guide-grid"></div>
+  </section>
+
+  <!-- ============ 资料导航 ============ -->
+  <section class="section" id="resources">
+    <div class="sec-head">
+      <span class="sec-idx">03</span>
+      <div>
+        <h2>资料与系统导航</h2>
+        <p>wiki「重要资料 / 管理系统」两节的分类化指引：按用途分组，支持搜索与一键直达。</p>
+      </div>
+    </div>
+
+    <div class="res-toolbar">
+      <div class="res-search">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input id="res-search" type="text" placeholder="搜索文档名 / 责任人 / 系统名…" />
+      </div>
+      <span class="res-hint" id="res-hint"></span>
+    </div>
+
+    <h3 class="res-sub"><span>📁 文档资料导航</span><span class="res-src">来自 wiki「九、项目重要资料」</span></h3>
+    <div class="res-groups" id="res-groups"></div>
+
+    <h3 class="res-sub"><span>🖥 系统速查</span><span class="res-src">来自 wiki「十、项目管理系统」</span></h3>
+    <div class="sys-grid" id="sys-grid"></div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="section" id="faq">
+    <div class="sec-head">
+      <span class="sec-idx">04</span>
+      <div>
+        <h2>常见问题</h2>
+        <p>点开查看答案；没找到？<button class="link-btn" id="faq-ask-btn">问 AI 助手</button></p>
+      </div>
+    </div>
+    <div class="faq-grid" id="faq-grid"></div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <p><b>CarOS_Nori_2026 入项指南</b> · 内容同步自项目飞书 Wiki，以原文档为准</p>
+    <p class="dim-sm">
+      AI 助手基于入项知识库回答；API Key 仅保存在你自己的浏览器（localStorage）中，不会上传。
+      生产环境建议通过后端代理调用大模型接口。
+    </p>
+    <p class="dim-sm"><a href="#" id="wiki-link-ft" target="_blank" rel="noopener">查看飞书原文档 ↗</a></p>
+  </div>
+</footer>
+
+<!-- ============ 悬浮助手 ============ -->
+<button class="chat-fab" id="chat-fab" aria-label="打开 AI 助手">
+  <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+  </svg>
+  <span class="fab-dot"></span>
+</button>
+
+<div class="chat-panel" id="chat-panel" aria-hidden="true">
+  <div class="chat-head">
+    <div class="chat-title">
+      <span class="chat-ava">AI</span>
+      <div>
+        <b>入项助手</b>
+        <small id="chat-status">基于入项知识库</small>
+      </div>
+    </div>
+    <div class="chat-acts">
+      <button class="icon-btn" id="chat-setting-btn" title="设置" aria-label="设置">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      </button>
+      <button class="icon-btn" id="chat-clear-btn" title="清空对话" aria-label="清空对话">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+      </button>
+      <button class="icon-btn" id="chat-close-btn" title="收起" aria-label="收起">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="chat-body" id="chat-body"></div>
+
+  <div class="chat-suggest" id="chat-suggest"></div>
+
+  <div class="chat-input-row">
+    <textarea id="chat-input" rows="1" placeholder="输入问题，Enter 发送 / Shift+Enter 换行"></textarea>
+    <button class="chat-send" id="chat-send-btn" aria-label="发送">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- ============ 设置弹窗 ============ -->
+<div class="modal" id="setting-modal" aria-hidden="true">
+  <div class="modal-bg" data-close></div>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-label="助手设置">
+    <button class="modal-x" data-close aria-label="关闭">×</button>
+    <h3>助手设置</h3>
+    <p class="dim-sm mt0">配置大模型接口（OpenAI 兼容）。Key 仅保存在本机浏览器，不会上传到任何服务器。</p>
+    <div class="field">
+      <label>API Key</label>
+      <input type="password" id="set-key" placeholder="例如 DeepSeek API Key" autocomplete="off" />
+    </div>
+    <div class="field">
+      <label>接口地址（OpenAI 兼容 Chat Completions）</label>
+      <input type="text" id="set-base" placeholder="https://api.deepseek.com/chat/completions" />
+    </div>
+    <div class="field">
+      <label>模型名</label>
+      <input type="text" id="set-model" placeholder="deepseek-chat" />
+    </div>
+    <div class="note note-acc">
+      常用预设：<b>DeepSeek</b> api.deepseek.com · deepseek-chat（性价比高，支持推理 deepseek-reasoner）｜<b>智谱</b> open.bigmodel.cn · glm-4-flash｜<b>OpenAI</b> api.openai.com · gpt-4o-mini。
+      直连方式适合个人/内网使用，生产环境建议加后端代理。
+    </div>
+    <div class="modal-acts">
+      <button class="btn btn-ghost btn-sm" data-close>取消</button>
+      <button class="btn btn-sm" id="set-save-btn">保存</button>
+    </div>
+  </div>
+</div>
+
+<script src="config.js"></script>
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script src="chat.js"></script>
+</body>
+</html>
